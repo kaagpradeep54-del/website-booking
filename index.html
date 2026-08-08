@@ -1,150 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Booking</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <title>HealthBook - Find Doctors</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #172033;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-        header {
-            background: white;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
+    body {
+      background: #f5f8fc;
+      color: #222;
+    }
 
-        header h1 {
-            color: #2563eb;
-        }
+    nav {
+      background: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #172033;
-        }
+    nav h2 {
+      color: #1264d8;
+    }
 
-        .hero {
-            text-align: center;
-            padding: 90px 20px;
-            background: linear-gradient(135deg, #2563eb, #60a5fa);
-            color: white;
-        }
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #333;
+    }
 
-        .hero h2 {
-            font-size: 42px;
-            margin-bottom: 15px;
-        }
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: #1475e8;
+      color: white;
+    }
 
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
 
-        .button {
-            display: inline-block;
-            background: white;
-            color: #2563eb;
-            padding: 14px 25px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
 
-        .services {
-            padding: 60px 8%;
-        }
+    .search {
+      background: white;
+      padding: 15px;
+      max-width: 750px;
+      margin: auto;
+      border-radius: 10px;
+      display: flex;
+      gap: 10px;
+    }
 
-        .services h2 {
-            text-align: center;
-            margin-bottom: 35px;
-        }
+    .search input,
+    .search select {
+      flex: 1;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
+    .search button {
+      padding: 14px 25px;
+      border: none;
+      border-radius: 6px;
+      background: #1264d8;
+      color: white;
+      cursor: pointer;
+    }
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            text-align: center;
-        }
+    .section {
+      padding: 55px 8%;
+      text-align: center;
+    }
 
-        .card h3 {
-            margin-bottom: 12px;
-            color: #2563eb;
-        }
+    .doctors {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #172033;
-            color: white;
-        }
-    </style>
+    .doctor {
+      background: white;
+      width: 280px;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .doctor h3 {
+      color: #1264d8;
+      margin-bottom: 10px;
+    }
+
+    .doctor p {
+      margin: 8px 0;
+    }
+
+    .doctor button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #1264d8;
+      color: white;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #172033;
+      color: white;
+    }
+
+    @media (max-width: 700px) {
+      .search {
+        flex-direction: column;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-    <h1>BookPro</h1>
+  <nav>
+    <h2>HealthBook</h2>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#services">Services</a>
-        <a href="#">Login</a>
-    </nav>
-</header>
+    <div>
+      <a href="#">Home</a>
+      <a href="#doctors">Doctors</a>
+      <a href="#about">About</a>
+    </div>
+  </nav>
 
-<section class="hero">
-    <h2>Book Professional Services Easily</h2>
-    <p>Find trusted professionals and book appointments online.</p>
-    <a class="button" href="#services">Get Started</a>
-</section>
+  <section class="hero">
 
-<section class="services" id="services">
-    <h2>Our Services</h2>
+    <h1>Find and Book Trusted Doctors</h1>
 
-    <div class="cards">
+    <p>
+      Find health professionals and book appointments online.
+    </p>
 
-        <div class="card">
-            <h3>Consultation</h3>
-            <p>Book a professional consultation.</p>
-        </div>
+    <div class="search">
 
-        <div class="card">
-            <h3>Appointments</h3>
-            <p>Choose a convenient appointment time.</p>
-        </div>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search doctor or specialty"
+      >
 
-        <div class="card">
-            <h3>Professional Services</h3>
-            <p>Discover experienced professionals.</p>
-        </div>
+      <select id="specialty">
+        <option value="">Choose specialty</option>
+        <option>General Doctor</option>
+        <option>Cardiologist</option>
+        <option>Dentist</option>
+        <option>Dermatologist</option>
+        <option>Pediatrician</option>
+      </select>
+
+      <button onclick="searchDoctors()">
+        Search
+      </button>
 
     </div>
-</section>
 
-<footer>
-    <p>© 2026 BookPro. All rights reserved.</p>
-</footer>
+  </section>
+
+  <section class="section" id="doctors">
+
+    <h2>Featured Health Professionals</h2>
+
+    <div class="doctors">
+
+      <div class="doctor">
+
+        <h3>Dr. Sarah Johnson</h3>
+
+        <p>General Doctor</p>
+
+        <p>Available for appointments</p>
+
+        <button onclick="bookDoctor('Dr. Sarah Johnson')">
+          Book Appointment
+        </button>
+
+      </div>
+
+      <div class="doctor">
+
+        <h3>Dr. Michael Smith</h3>
+
+        <p>Cardiologist</p>
+
+        <p>Available for appointments</p>
+
+        <button onclick="bookDoctor('Dr. Michael Smith')">
+          Book Appointment
+        </button>
+
+      </div>
+
+      <div class="doctor">
+
+        <h3>Dr. Emily Brown</h3>
+
+        <p>Dermatologist</p>
+
+        <p>Available for appointments</p>
+
+        <button onclick="bookDoctor('Dr. Emily Brown')">
+          Book Appointment
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section" id="about">
+
+    <h2>About HealthBook</h2>
+
+    <p>
+      HealthBook helps people find health professionals
+      and request appointments online.
+    </p>
+
+  </section>
+
+  <footer>
+    © 2026 HealthBook
+  </footer>
+
+  <script>
+
+    function bookDoctor(name) {
+      alert(
+        "Appointment request started for " + name
+      );
+    }
+
+    function searchDoctors() {
+
+      const search =
+        document.getElementById("searchInput").value;
+
+      const specialty =
+        document.getElementById("specialty").value;
+
+      if (!search && !specialty) {
+        alert("Please enter a doctor or choose a specialty.");
+        return;
+      }
+
+      alert(
+        "Searching for doctors..."
+      );
+    }
+
+  </script>
 
 </body>
 </html>
